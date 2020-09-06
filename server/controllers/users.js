@@ -37,18 +37,24 @@ exports._signup = async (req, res) => {
 };
 
 // login
-exports._login = (req, res) => {
-    res.send('user: login')
+exports._login = async (req, res) => {
+    res.status(200).json({
+        username: req.user.username
+    });
 };
 
 // logout
 exports._logout = (req, res) => {
-    res.send('user: logout')
+    req.session.destroy();
+    req.logout();
 };
 
 // user
 exports.get_user = (req, res) => {
-    res.send('user: get user')
+    req.user ? 
+        res.json({user: req.user.username})
+        :
+        res.json({user: null})
 };
 
 // update user

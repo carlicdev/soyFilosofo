@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { GiHamburgerMenu, GiFeather } from 'react-icons/gi';
 import { CgCloseR } from 'react-icons/cg';
+import { SessionContext } from '../../context/session_context';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const { user } = useContext(SessionContext);
 
     return (
         <div className='bg-teal-900 w-full'>
@@ -14,6 +16,11 @@ const Navbar = () => {
                         <GiFeather size={30} />
                     </Link>
                 </h1>
+                {
+                    user && (
+                        <p className='text-white text-sm font-thin'>{user}</p>
+                    )
+                }
                 <button className='text-white ml-auto focus:outline-none hover:text-gray-600'
                     onClick={() => setIsOpen(!isOpen)}
                 >

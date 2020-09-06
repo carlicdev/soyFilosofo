@@ -1,12 +1,13 @@
 const { Router } = require('express');
 const router = Router();
+const passport = require('../passport/passport');
 
 const userController = require('../controllers/users');
 
 router.post('/signup', userController._signup);
-router.post('/login', userController._login);
+router.post('/login', passport.authenticate('local'), userController._login);
 router.get('/logout', userController._logout);
-router.get('/:id', userController.get_user);
+router.get('/', userController.get_user);
 router.put('/:id', userController.update_user);
 
 

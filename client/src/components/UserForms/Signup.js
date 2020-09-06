@@ -45,7 +45,7 @@ const Signup = () => {
                 <p>Success</p>
             )
         }
-            <div className='bg-gray-400 max-w-md mx-auto border rounded'>
+            <div className='max-w-md mx-auto border rounded shadow'>
                 <div className='bg-teal-900 w-full p-5 rounded-t'>
                     <div className='text-2xl text-gray-100 font-semibold'>Registro</div>
                 </div>
@@ -53,8 +53,8 @@ const Signup = () => {
                     <div className='p-5 w-full'>
                         <div className='flex flex-wrap justify-around'>
                             <div className='container md:w-1/2 text-left mb-2 p-1'>
-                                <label className='text-gray-800 text-md font-semibold'>Alias</label>
-                                <input className='w-full rounded p-1 bg-gray-100 focus:outline-none focus:shadow-outline'
+                                <label className='text-gray-600 text-md'>Alias</label>
+                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100'
                                     type='text'
                                     name='username'
                                     value={username}
@@ -67,8 +67,8 @@ const Signup = () => {
                                 }
                             </div>
                             <div className='container md:w-1/2 text-left mb-2 p-1'>
-                                <label className='text-gray-800 text-md font-semibold'>Email</label>
-                                <input className='w-full rounded p-1 bg-gray-100 focus:outline-none focus:shadow-outline'
+                                <label className='text-gray-600 text-md'>Email</label>
+                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100'
                                     type='email'
                                     name='email'
                                     value={email}
@@ -81,8 +81,8 @@ const Signup = () => {
                                 }
                             </div>
                             <div className='container md:w-1/2 text-left mb-2 p-1'>
-                                <label className='text-gray-800 text-md font-semibold'>Nombre</label>
-                                <input className='w-full rounded p-1 bg-gray-100 focus:outline-none focus:shadow-outline'
+                                <label className='text-gray-600 text-md'>Nombre</label>
+                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100'
                                     type='text'
                                     name='firstname'
                                     value={firstname}
@@ -95,8 +95,8 @@ const Signup = () => {
                                 }
                             </div>
                             <div className='container md:w-1/2 text-left mb-2 p-1'>
-                                <label className='text-gray-800 text-md font-semibold'>Apellido</label>
-                                <input className='w-full rounded p-1 bg-gray-100 focus:outline-none focus:shadow-outline'
+                                <label className='text-gray-600 text-md'>Apellido</label>
+                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100'
                                     type='text'
                                     name='lastname'
                                     value={lastname}
@@ -109,8 +109,8 @@ const Signup = () => {
                                 }
                             </div>
                             <div className='container md:w-1/2 text-left md:mb-5 mb-2 p-1'>
-                                <label className='text-gray-800 text-md font-semibold'>Password</label>
-                                <input className='w-full rounded p-1 bg-gray-100 focus:outline-none focus:shadow-outline'
+                                <label className='text-gray-600 text-md'>Password</label>
+                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100'
                                     type='password'
                                     name='password'
                                     value={password}
@@ -123,8 +123,8 @@ const Signup = () => {
                                 }
                             </div>
                             <div className='container md:w-1/2 text-left mb-5 p-1'>
-                                <label className='text-gray-800 text-md font-semibold'>Confirmar Password</label>
-                                <input className='w-full rounded p-1 bg-gray-100 focus:outline-none focus:shadow-outline'
+                                <label className='text-gray-600 text-md'>Confirmar Password</label>
+                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100'
                                     type='password'
                                     name='confirmPassword'
                                     value={confirmPassword}

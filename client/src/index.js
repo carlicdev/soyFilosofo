@@ -4,10 +4,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
+import SessionContextProvider from './context/session_context';
 
 ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
+  <SessionContextProvider>
+    <Router>
+      <App />
+    </Router> 
+  </SessionContextProvider>,
   document.getElementById('root')
 );

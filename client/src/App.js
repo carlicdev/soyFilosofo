@@ -8,6 +8,7 @@ import Dashboard from './components/User/Dashboard';
 import Store from './components/Store/Store';
 import Home from './components/Home/Home';
 import Signup from './components/UserForms/Signup';
+import LoginForm from './components/UserForms/LoginForm';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route exact path='/user' component={Dashboard} />
         <Route exact path='/store' component={Store} />
         <Route path='/signup' component={Signup} />
+        <Route path='/login' component={LoginForm} />
       </Switch>
     </div>
   );
