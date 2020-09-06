@@ -9,6 +9,7 @@ const app = express();
 require('./db/db')
 
 // Routes
+const usersRouter = require('./routes/users');
 const articlesRouter = require('./routes/articles');
 
 // Settings
@@ -28,7 +29,9 @@ app.use(express.static(path.join(__dirname, '../client/build')));
 // Passport
 
 // Api
+app.use('/api/users', usersRouter);
 app.use('/api/articles', articlesRouter);
+
 
 app.listen(app.get('PORT'), () => {
     console.log(`Server on PORT: ${app.get('PORT')}`);

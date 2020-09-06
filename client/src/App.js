@@ -7,6 +7,7 @@ import ArticleList from './components/Articles/ArticleList';
 import Dashboard from './components/User/Dashboard';
 import Store from './components/Store/Store';
 import Home from './components/Home/Home';
+import Signup from './components/UserForms/Signup';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route exact path='/forum' component={Forum} />
         <Route exact path='/user' component={Dashboard} />
         <Route exact path='/store' component={Store} />
+        <Route path='/signup' component={Signup} />
       </Switch>
     </div>
   );
