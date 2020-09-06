@@ -5,12 +5,15 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router } from 'react-router-dom';
 import App from './App';
 import SessionContextProvider from './context/session_context';
+import ForumContextProvider from './context/forum_context';
 
 ReactDOM.render(
   <SessionContextProvider>
-    <Router>
-      <App />
-    </Router> 
+    <ForumContextProvider>
+      <Router>
+        <App />
+      </Router>  
+    </ForumContextProvider>
   </SessionContextProvider>,
   document.getElementById('root')
 );
