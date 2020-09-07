@@ -45,7 +45,7 @@ const Signup = () => {
                 <p>Success</p>
             )
         }
-            <div className='max-w-md mx-auto border rounded shadow'>
+            <div className='max-w-md mx-auto border rounded shadow bg-gray-200'>
                 <div className='bg-teal-900 w-full p-5 rounded-t'>
                     <div className='text-2xl text-gray-100 font-semibold'>Registro</div>
                 </div>

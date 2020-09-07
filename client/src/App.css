@@ -8,8 +8,12 @@ body {
 }
 
 .cover {
-  background-image: url('./images/cover/booksCover.jpg');
+  background-image: url('./images/cover/filosofoCover1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  box-shadow: inset 0 0 0 100vmax rgba(2, 29, 18, 0.4);
+  box-shadow: inset 0 0 0 100vmax rgba(11, 46, 32, 0.568);
+}
+
+.cover-title {
+  font-family: 'Montserrat', sans-serif;
 }

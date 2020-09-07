@@ -52,7 +52,11 @@ exports._logout = (req, res) => {
 // user
 exports.get_user = (req, res) => {
     req.user ? 
-        res.json({user: req.user.username})
+        res.json({user: {
+            username: req.user.username,
+            userId: req.user._id,
+            posts: req.user.posts
+        }})
         :
         res.json({user: null})
 };

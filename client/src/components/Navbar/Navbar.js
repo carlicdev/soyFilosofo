@@ -18,7 +18,7 @@ const Navbar = () => {
                 </h1>
                 {
                     user && (
-                        <p className='text-white text-sm font-thin'>{user}</p>
+                        <p className='text-white text-sm font-thin'>{user.username}</p>
                     )
                 }
                 <button className='text-white ml-auto focus:outline-none hover:text-gray-600'

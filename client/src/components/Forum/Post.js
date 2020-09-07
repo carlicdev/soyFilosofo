@@ -7,8 +7,8 @@ const Post = ({post}) => {
     return (
         <div className='w-full  m-1 border border-teal-900'>
             <div className='bg-teal-900 text-xs text-gray-100 p-1 text-left'>
-                <span className='inline'>
-                    <BsFillCalendarFill />
+                <span className='inline mr-3'>
+                    <BsFillCalendarFill className='inline'/>
                 </span>
                 <div className='inline'>
                     <Moment format='DD/MM/YYYY HH:mm'>
@@ -23,7 +23,7 @@ const Post = ({post}) => {
                     <div className='text-sm text-gray-900'>Miembro desde: 
                         <span><Moment format='DD/MM/YYYY'>{post.userId.created}</Moment></span>
                     </div>
-                    <div className='text-sm text-gray-900'>Posts: <span>Muchos posts</span></div>
+                    <div className='text-sm text-gray-900'>Posts: <span>{post.userId.posts}</span></div>
                 </div>
                 <div className='p-2 lg:inline lg:w-4/5 text-left text-gray-900 text-md lg:col-span-4'>
                     {post.content}
