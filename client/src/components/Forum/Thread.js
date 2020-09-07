@@ -20,13 +20,13 @@ const Thread = ({thread}) => {
             </div>
             <div className='grid grid-cols-3 text-center'>
                 <div className='col-span-1'>
-                    <p className='text-sm italic text-left'>Started by: <span className='not-italic'>{thread.author}</span></p>
+                    <p className='text-sm italic text-left'>Started by: <span className='not-italic'> {thread.userId.username}</span></p>
                 </div>
                 <div className='col-span-1'>
                     <p className='text-sm text-gray-700'><span className='text-teal-700'><FaEye className='inline mb-1 ' size={20}/></span> {thread.views}</p>
                 </div>
                 <div className='col-span-1'>
-                    <p className='text-sm text-right text-gray-700'><span className='text-teal-700'><MdComment className='inline mb-1' size={20} /></span> {thread.comments.length}</p>
+                    <p className='text-sm text-right text-gray-700'><span className='text-teal-700'><MdComment className='inline mb-1' size={20} /></span> {thread.comments}</p>
                 </div>
             </div>
         </div>

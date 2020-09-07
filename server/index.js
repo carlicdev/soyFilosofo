@@ -13,6 +13,7 @@ require('./db/db')
 // Routes
 const usersRouter = require('./routes/users');
 const articlesRouter = require('./routes/articles');
+const forumRouter = require('./routes/forum');
 
 // Settings
 app.set('PORT', process.env.PORT || 5000);
@@ -42,6 +43,7 @@ app.use(passport.session());
 // Api
 app.use('/api/users', usersRouter);
 app.use('/api/articles', articlesRouter);
+app.use('/api/forum', forumRouter);
 
 
 app.listen(app.get('PORT'), () => {

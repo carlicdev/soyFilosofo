@@ -15,7 +15,7 @@ const Forum = () => {
             {
                 threads && (
                     threads.map(i  => {
-                        return <Thread key={i.id} thread={i} />
+                        return <Thread key={i._id} thread={i} />
                     })
                 )
             }

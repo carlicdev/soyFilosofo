@@ -21,6 +21,10 @@ const userSchema = new Schema({
     password: {
         type: String,
         required: [true, 'Incluye una contraseña']
+    },
+    created: {
+        type: Date,
+        default: Date.now
     }
 });
 

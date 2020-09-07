@@ -1,14 +1,24 @@
 import React, { useState, useEffect, createContext } from 'react';
 import axios from 'axios';
 
-import {allThreads} from '../data'
 export const ForumContext = createContext();
 
 
 const ForumContextProvider = (props) => {
-    const [threads, setThreads] = useState(allThreads)
+    const [threads, setThreads] = useState(null);
 
-    console.log(threads);
+    useEffect(() => {
+        const getThreads = async () => {
+            try {
+                const res = await axios.get('/api/forum/threads');
+                setThreads(res.data)
+            } catch(err) {
+                console.log(err)
+            }
+        }
+        getThreads();
+    }, []);
+
     return (
         <ForumContext.Provider value={{threads}}>
             {props.children}
