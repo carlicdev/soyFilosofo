@@ -2,6 +2,7 @@ const Category = require("../models/forum/category");
 const Thread = require('../models/forum/thread');
 const Post = require('../models/forum/post');
 const User = require('../models/user');
+const post = require("../models/forum/post");
 
 exports.new_category = async (req, res) => {
     const { userId, title } = req.body;
@@ -81,8 +82,14 @@ exports.new_post = async (req, res) => {
     }
 };
 
-exports.all_posts = (req, res) => {
-    res.send('hello from all posts')
+exports.last_five_posts = async (req, res) => {
+    try {
+        const posts = await Post.find().populate('userId', 'username').populate('threadId', 'title categoryId slug');
+        const lastThreePosts = posts.reverse().splice(0, 5);
+        res.send(lastThreePosts);
+    } catch(err) {
+        console.log(err);
+    }
 };
 
 exports.single_post = (req, res) => {

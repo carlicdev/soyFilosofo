@@ -15,7 +15,7 @@ router.get('/threads/:slug', forumController.single_thread);
 
 // Posts
 router.post('/new-post', forumController.new_post);
-router.get('/posts', forumController.all_posts);
+router.get('/last-five-posts', forumController.last_five_posts);
 router.get('/posts/:id', forumController.single_post);
 
 module.exports = router;
