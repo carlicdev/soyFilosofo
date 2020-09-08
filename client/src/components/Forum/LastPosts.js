@@ -5,6 +5,7 @@ import Moment from 'react-moment';
 
 const LastPosts = () => {
     const [posts, setPosts] = useState(null);
+    const [isOpen, setIsOpen] = useState(true);
 
     useEffect(() => {
         const getPosts = async () => {
@@ -16,15 +17,17 @@ const LastPosts = () => {
 
     return (
         <div className='w-full border'>
-            <div className='bg-teal-900 text-white  w-full p-2'>
+            <button className='bg-teal-900 text-white  w-full p-2 focus:outline-none'
+                onClick={() => setIsOpen(!isOpen)}
+            >
                 Ultimos Mensajes
-            </div>
-            <div className='text-gray-900 w-full'>
+            </button>
+            <div className={`${ isOpen ? '' : 'hidden'} text-gray-900 w-full`}>
                 {
                     posts && (
                         posts.map(i => {
                             return (
-                                <div className='w-full p-1'>
+                                <div key={i._id} className='w-full p-1'>
                                     <Link to={`/forum/${i.threadId.slug}`}>
                                     <div className='w-full bg-teal-800 text-gray-100'>
                                         <div className=' text-sm'>

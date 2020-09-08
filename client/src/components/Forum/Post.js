@@ -19,7 +19,7 @@ const Post = ({post}) => {
             <div className='w-full col-5 lg:flex'>
                 <div className='hidden lg:inline lg:w-1/5  col-span-1 p-5 border'>
                     <div className='font-semibold text-teal-800'>{post.userId.username}</div>
-                    <div className='mx-auto text-teal-800'><FaUserCircle size={35} /></div>
+                    <div className='mx-auto text-teal-800'><FaUserCircle size={35} className='mx-auto' /></div>
                     <div className='text-sm text-gray-900'>Miembro desde: 
                         <span><Moment format='DD/MM/YYYY'>{post.userId.created}</Moment></span>
                     </div>

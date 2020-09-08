@@ -1,10 +1,10 @@
 import React, { useState, useContext } from 'react';
-import { Redirect, Link } from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import { SessionContext } from '../../context/session_context';
 import { GiFeather } from 'react-icons/gi';
 
 
-const LoginForm = () => {
+const LoginForm = ({handleModal}) => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [errorMsg, setErrorMsg] = useState(null);
@@ -64,11 +64,11 @@ const LoginForm = () => {
                 </form>
                 <hr/>
                 <div className='w-full px-5 pb-5'>
-                    <Link to='/signup'>
-                        <button className='bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow focus:outline-none'>
+                        <button className='bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded shadow focus:outline-none'
+                            onClick={handleModal}
+                        >
                             Crear Cuenta
                         </button>
-                    </Link>
                 </div>
             </div>
                 )

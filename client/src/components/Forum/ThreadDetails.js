@@ -4,6 +4,8 @@ import Post from './Post';
 import NewPost from './NewPost';
 import { SessionContext } from '../../context/session_context';
 import LoginForm from '../UserForms/LoginForm';
+import Breadcrumb from '../Breadcrumb/Breadcrumb';
+import LastPosts from './LastPosts';
 
 const ThreadDetails = ({match}) => {
     const [posts, setPosts] = useState(null);
@@ -32,7 +34,9 @@ const ThreadDetails = ({match}) => {
     }
 
     return (
-        <div className='p-5'>
+        <div className='grid grid-cols-4'>
+            <div className='col-span-3 p-5'>
+            <Breadcrumb slug={match.params.slug} />
         {
             !posts && <p>Loading...</p>
         }
@@ -46,7 +50,10 @@ const ThreadDetails = ({match}) => {
         {
             user ? <NewPost newComment={newComment} /> : <LoginForm />
         }
-        
+            </div>
+            <div className='col-span-1'>
+                <LastPosts />
+            </div>
         </div>
     )
 }

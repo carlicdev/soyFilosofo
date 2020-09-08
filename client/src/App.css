@@ -11,9 +11,13 @@ body {
   background-image: url('./images/cover/filosofoCover1.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  box-shadow: inset 0 0 0 100vmax rgba(11, 46, 32, 0.568);
+  box-shadow: inset 0 0 0 100vmax rgba(33, 87, 65, 0.623);
 }
 
 .cover-title {
   font-family: 'Montserrat', sans-serif;
+}
+
+.modal {
+  background-color:  rgba(0, 0, 0, 0.7);
 }
