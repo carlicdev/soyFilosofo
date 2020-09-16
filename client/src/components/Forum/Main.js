@@ -4,7 +4,7 @@ import LastPosts from './LastPosts'
 
 const Main = () => {
     return (
-        <div className='grid grid-cols-4'>
+        <div className='grid lg:grid-cols-4 grid-cols-1'>
             <div className='col-span-3'>
                 <Forum />
             </div>

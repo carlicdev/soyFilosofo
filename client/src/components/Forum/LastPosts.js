@@ -10,7 +10,10 @@ const LastPosts = () => {
     useEffect(() => {
         const getPosts = async () => {
             const res = await axios.get('/api/forum/last-five-posts');
-            setPosts(res.data);
+            res.data.lastFivePosts.map(i => {
+                i.category = res.data.categories[0]
+            })
+            setPosts(res.data.lastFivePosts);
         }
         getPosts();
     },[])
@@ -31,8 +34,8 @@ const LastPosts = () => {
                                     <Link to={`/forum/${i.threadId.slug}`}>
                                         <div className='grid grid-cols-4'>
                                             <div className='col-span-1'>
-                                                <img src={`https://my-demo-bucket-123.s3.us-east-2.amazonaws.com/${i.userId.profileImageUrl}`} alt='profile' className='w-12 h-12 rounded-full mx-auto' /> 
-                                                    <div className='font-light text-xs  w-full'>
+                                                <img src={`https://my-demo-bucket-123.s3.us-east-2.amazonaws.com/${i.userId.profileImageUrl}`} alt='profile' className='w-12 h-12 rounded-full mx-auto mt-1' /> 
+                                                    <div className='font-light text-xs  w-full font-semibold'>
                                                         {i.userId.username}
                                                     </div>
                                             </div>
@@ -41,7 +44,7 @@ const LastPosts = () => {
                                                     <div className='font-light text-left text-sm font-semibold w-1/2'>
                                                         {i.threadId.title}
                                                     </div>
-                                                    <div className='font-light text-xs w-1/2 text-right'>
+                                                    <div className='font-light text-xs w-1/2 text-right text-gray-500'>
                                                         <Moment format='DD/MM/YYYY'>
                                                         {i.created}
                                                         </Moment>
@@ -50,9 +53,9 @@ const LastPosts = () => {
                                                         {i.content}...
                                                     </div>
                                                 </div>
-                                                <div className='w-full text-gray-300'>
+                                                <div className='w-full text-gray-500 text-left px-1'>
                                                     <div className=' text-sm'>
-                                                        {i.threadId.categoryId}
+                                                        {i.category.title}
                                                     </div>
                                                 </div>
                                             </div>

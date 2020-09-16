@@ -85,8 +85,9 @@ exports.new_post = async (req, res) => {
 exports.last_five_posts = async (req, res) => {
     try {
         const posts = await Post.find().populate('userId', 'username profileImageUrl').populate('threadId', 'title categoryId slug');
+        const categories = await Category.find();
         let lastFivePosts = posts.reverse().splice(0, 5);
-        res.send(lastFivePosts);
+        res.send({lastFivePosts, categories});
     } catch(err) {
         console.log(err);
     }
