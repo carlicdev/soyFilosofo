@@ -29,7 +29,10 @@ const userSchema = new Schema({
     posts: {
         type: Number,
         default: 0
-    }
+    },
+    profileImageUrl: {
+        type: String
+    } 
 });
 
 // Handle password

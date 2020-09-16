@@ -1,6 +1,7 @@
 body {
-  font-family: 'Baloo Tamma 2', cursive;
-  /*font-family: 'Quicksand', sans-serif;*/
+  color: #f7fafc;
+  background-color: black;
+ font-family: 'Quicksand', sans-serif;
 }
 
 .App {

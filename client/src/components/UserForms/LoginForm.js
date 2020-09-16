@@ -29,7 +29,7 @@ const LoginForm = ({handleModal}) => {
                     <Redirect to='/forum'/>
                 ) : (
             <div className='max-w-xs mx-auto rounded shadow bg-gray-200'>
-                <div className='bg-teal-900 w-full p-5 rounded-t '>
+                <div className='bg-black w-full p-5 rounded-t '>
                     <div className='text-2xl text-gray-100 font-semibold'><GiFeather size={55} className='mx-auto'/></div>
                 </div>
                 <form onSubmit={handleSubmit}>
@@ -41,7 +41,7 @@ const LoginForm = ({handleModal}) => {
                                 )
                             }
                             <label className='text-gray-600 text-md '>Alias</label>
-                            <input className='w-full bg-blue-100 rounded  p-1 bg-gray-100 focus:outline-none focus:shadow-outline border border-gray-400'
+                            <input className='w-full bg-blue-100 rounded  p-1 bg-gray-100 focus:outline-none focus:shadow-outline border border-gray-400 text-gray-900'
                                     type='text'
                                     name='username'
                                     value={username}
@@ -50,14 +50,14 @@ const LoginForm = ({handleModal}) => {
                         </div>
                         <div className='container w-full p-1 text-left'>
                             <label className='text-gray-600 text-md '>Password</label>
-                            <input className='w-full bg-blue-100 rounded p-1 bg-gray-100 focus:outline-none focus:shadow-outline border border-gray-400'
+                            <input className='w-full bg-blue-100 rounded p-1 bg-gray-100 focus:outline-none focus:shadow-outline border border-gray-400 text-gray-900'
                                     type='password'
                                     name='password'
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
                             />
                         </div>
-                        <button type='submit' className='w-full p-2 mt-5 rounded shadow bg-teal-900 text-gray-100 focus:outline-none hover:bg-teal-800'>
+                        <button type='submit' className='w-full p-2 mt-5 rounded shadow bg-black text-gray-100 focus:outline-none hover:bg-teal-800'>
                             Log In
                         </button>
                     </div>

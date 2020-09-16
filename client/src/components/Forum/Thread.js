@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaEye } from 'react-icons/fa';
+import { FaEye, FaUser } from 'react-icons/fa';
 import { MdComment } from 'react-icons/md';
 
 const Thread = ({thread}) => {
     return (
-        <div className='bg-gray-100 border max-w-4xl border-gray-400 p-2 mx-auto'>
+        <div className='bg-gray-900 border max-w-4xl border-black p-2 mx-auto'>
             <div className='grid grid-cols-5'>
                 <div className='col-span-4'>
-                    <p className='text-xl text-left font-semibold text-teal-800'>
+                    <p className='text-xl text-left font-semibold text-gray-100'>
                         <Link to={`/forum/${thread.slug}`}>
                             {thread.title}
                         </Link>
@@ -20,13 +20,13 @@ const Thread = ({thread}) => {
             </div>
             <div className='grid grid-cols-3 text-center'>
                 <div className='col-span-1'>
-                    <p className='text-sm italic text-left'>Started by: <span className='not-italic'> {thread.userId.username}</span></p>
+                    <p className='text-sm italic text-left'><FaUser className='inline mb-1 text-green-700' size={15} /> <span className='not-italic'> {thread.userId.username}</span></p>
                 </div>
                 <div className='col-span-1'>
-                    <p className='text-sm text-gray-700'><span className='text-teal-700'><FaEye className='inline mb-1 ' size={20}/></span> {thread.views}</p>
+                    <p className='text-sm text-gray-200'><span className='text-gray-100'><FaEye className='inline mb-1 text-green-700' size={20}/></span> {thread.views}</p>
                 </div>
                 <div className='col-span-1'>
-                    <p className='text-sm text-right text-gray-700'><span className='text-teal-700'><MdComment className='inline mb-1' size={20} /></span> {thread.comments}</p>
+                    <p className='text-sm text-right text-gray-200'><span className='text-gray-100'><MdComment className='inline mb-1 text-green-700' size={20} /></span> {thread.comments}</p>
                 </div>
             </div>
         </div>

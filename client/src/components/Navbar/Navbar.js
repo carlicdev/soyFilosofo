@@ -9,7 +9,7 @@ const Navbar = () => {
     const { user } = useContext(SessionContext);
 
     return (
-        <div className='bg-teal-900 w-full'>
+        <div className='bg-gray-900 w-full'>
             <div className='flex justify-around content-center p-2'>
                 <h1 className='text-white text-xl mr-auto'>
                     <Link to='/'>
@@ -29,23 +29,23 @@ const Navbar = () => {
             </div>
             {
                 isOpen && (
-                    <div className='flex flex-wrap bg-teal-800 p-2'>
-                        <Link to='/articles' className='w-full text-white mx-auto my-1 hover:bg-teal-900 rounded'
+                    <div className='flex flex-wrap bg-gray-700 p-2'>
+                        <Link to='/articles' className='w-full text-white mx-auto my-1 hover:bg-gray-900 rounded'
                             onClick={() => setIsOpen(!isOpen)}
                         >
                                 Articulos
                         </Link>
-                        <Link to='/forum' className='w-full text-white mx-auto my-1 hover:bg-teal-900 rounded'
+                        <Link to='/forum' className='w-full text-white mx-auto my-1 hover:bg-gray-900 rounded'
                             onClick={() => setIsOpen(!isOpen)}
                         >
                                 Foro
                         </Link>
-                        <Link to='/store' className='w-full text-white mx-auto my-1 hover:bg-teal-900 rounded'
+                        <Link to='/store' className='w-full text-white mx-auto my-1 hover:bg-gray-900 rounded'
                             onClick={() => setIsOpen(!isOpen)}
                         >
                                 Store
                         </Link>
-                        <Link to='/user' className='w-full text-white mx-auto my-1 hover:bg-teal-900 rounded'
+                        <Link to='/user' className='w-full text-white mx-auto my-1 hover:bg-gray-900 rounded'
                             onClick={() => setIsOpen(!isOpen)}
                         >
                                 User

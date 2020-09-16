@@ -65,3 +65,28 @@ exports.get_user = (req, res) => {
 exports.update_user = (req, res) => {
     res.send('user: update')
 };
+
+// userData
+exports.get_user_data = async (req, res) => {
+    const user = await User.findById(req.params.id);
+    res.status(200).json({
+        username: user.username,
+        firstname: user.firstname,
+        lastname: user.lastname,
+        email: user.email,
+        profileImageUrl: user.profileImageUrl
+    });
+}
+
+// profile image
+exports.new_profile_image = async (req, res) => {
+    try {
+        const user = await User.findOneAndUpdate({_id: req.user._id}, {
+            $set: {profileImageUrl: req.file.key}
+        });
+        console.log(user);
+        res.status(201).json({msg: 'profile image saved'})
+    } catch(err) {
+        console.log(err)
+    }
+}

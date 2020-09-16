@@ -46,7 +46,7 @@ const Signup = () => {
             )
         }
             <div className='max-w-md mx-auto border rounded shadow bg-gray-200'>
-                <div className='bg-teal-900 w-full p-5 rounded-t'>
+                <div className='bg-black w-full p-5 rounded-t'>
                     <div className='text-2xl text-gray-100 font-semibold'>Registro</div>
                 </div>
                 <form onSubmit={handleSubmit}>
@@ -54,7 +54,7 @@ const Signup = () => {
                         <div className='flex flex-wrap justify-around'>
                             <div className='container md:w-1/2 text-left mb-2 p-1'>
                                 <label className='text-gray-600 text-md'>Alias</label>
-                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100'
+                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100 text-gray-900'
                                     type='text'
                                     name='username'
                                     value={username}
@@ -68,7 +68,7 @@ const Signup = () => {
                             </div>
                             <div className='container md:w-1/2 text-left mb-2 p-1'>
                                 <label className='text-gray-600 text-md'>Email</label>
-                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100'
+                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100 text-gray-900'
                                     type='email'
                                     name='email'
                                     value={email}
@@ -82,7 +82,7 @@ const Signup = () => {
                             </div>
                             <div className='container md:w-1/2 text-left mb-2 p-1'>
                                 <label className='text-gray-600 text-md'>Nombre</label>
-                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100'
+                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100 text-gray-900'
                                     type='text'
                                     name='firstname'
                                     value={firstname}
@@ -96,7 +96,7 @@ const Signup = () => {
                             </div>
                             <div className='container md:w-1/2 text-left mb-2 p-1'>
                                 <label className='text-gray-600 text-md'>Apellido</label>
-                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100'
+                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100 text-gray-900'
                                     type='text'
                                     name='lastname'
                                     value={lastname}
@@ -110,7 +110,7 @@ const Signup = () => {
                             </div>
                             <div className='container md:w-1/2 text-left md:mb-5 mb-2 p-1'>
                                 <label className='text-gray-600 text-md'>Password</label>
-                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100'
+                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100 text-gray-900'
                                     type='password'
                                     name='password'
                                     value={password}
@@ -124,7 +124,7 @@ const Signup = () => {
                             </div>
                             <div className='container md:w-1/2 text-left mb-5 p-1'>
                                 <label className='text-gray-600 text-md'>Confirmar Password</label>
-                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100'
+                                <input className='w-full rounded p-1 focus:outline-none focus:shadow-outline border border-gray-300 bg-blue-100 text-gray-900'
                                     type='password'
                                     name='confirmPassword'
                                     value={confirmPassword}
@@ -132,7 +132,7 @@ const Signup = () => {
                                 />
                             </div>
                         </div>
-                        <button type='submit' className='w-full p-2 rounded shadow bg-teal-900 font-semibold text-gray-100 focus:outline-none hover:bg-teal-800'>
+                        <button type='submit' className='w-full p-2 rounded shadow bg-black font-semibold text-gray-100 focus:outline-none hover:bg-teal-800'>
                             Registrar
                         </button>
                     </div>

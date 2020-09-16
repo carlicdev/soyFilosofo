@@ -3,13 +3,16 @@ import axios from 'axios';
 import Post from './Post';
 import NewPost from './NewPost';
 import { SessionContext } from '../../context/session_context';
-import LoginForm from '../UserForms/LoginForm';
 import Breadcrumb from '../Breadcrumb/Breadcrumb';
 import LastPosts from './LastPosts';
+import Modal from '../Modal/Modal';
 
-const ThreadDetails = ({match}) => {
+const ThreadDetails = ({match, handleModal}) => {
     const [posts, setPosts] = useState(null);
     const [threadId, setThreadId] = useState(null);
+    const [comment, setComment] = useState(false);
+    const [modalOpen, setModalOpen] = useState(false)
+
 
     const { user } = useContext(SessionContext)
 
@@ -33,27 +36,48 @@ const ThreadDetails = ({match}) => {
         getPosts();
     }
 
+    const handleClick = () => {
+        setComment(!comment);
+        if (!user) {
+            setModalOpen(!modalOpen)
+        }
+    }
+
     return (
+        <div>
+        <Modal handleModal={modalOpen} />
         <div className='grid grid-cols-4'>
             <div className='col-span-3 p-5'>
-            <Breadcrumb slug={match.params.slug} />
-        {
-            !posts && <p>Loading...</p>
-        }
-        {
-            posts && (
-                posts.map(i => {
-                    return <Post key={i._id} post={i} />
-                })
-            )
-        }
-        {
-            user ? <NewPost newComment={newComment} /> : <LoginForm />
-        }
+                <Breadcrumb slug={match.params.slug} />
+                {
+                    !posts && <p>Loading...</p>
+                }
+                {
+                    posts && (
+                        posts.map(i => {
+                            return <Post key={i._id} post={i} postNum={posts.indexOf(i) + 1} />
+                        })
+                    )
+                }
+                <div className='w-full flex my-2'>
+                    <button className='bg-green-700 rounded px-4 py-2 text-gray-100 ml-auto focus:outline-none'
+                            onClick={handleClick}
+                    >
+                        Comentar
+                    </button>
+                </div>
+                {
+                    comment && (
+                        user && (
+                            <NewPost newComment={newComment} /> 
+                        )
+                    ) 
+                }
             </div>
             <div className='col-span-1'>
                 <LastPosts />
             </div>
+        </div>
         </div>
     )
 }

@@ -16,42 +16,48 @@ const LastPosts = () => {
     },[])
 
     return (
-        <div className='w-full border'>
-            <button className='bg-teal-900 text-white  w-full p-2 focus:outline-none'
+        <div className='w-full border border-gray-900 my-1'>
+            <button className='bg-gray-700 text-white  w-full p-2 focus:outline-none'
                 onClick={() => setIsOpen(!isOpen)}
             >
                 Ultimos Mensajes
             </button>
-            <div className={`${ isOpen ? '' : 'hidden'} text-gray-900 w-full`}>
+            <div className={`${ isOpen ? '' : 'hidden'} text-gray-100 w-full bg-gray-700`}>
                 {
                     posts && (
                         posts.map(i => {
                             return (
-                                <div key={i._id} className='w-full p-1'>
+                                <div key={i._id} className='w-full p-1 bg-gray-900 border border-black'>
                                     <Link to={`/forum/${i.threadId.slug}`}>
-                                    <div className='w-full bg-teal-800 text-gray-100'>
-                                        <div className=' text-sm'>
-                                            {i.threadId.categoryId}
+                                        <div className='grid grid-cols-4'>
+                                            <div className='col-span-1'>
+                                                <img src={`https://my-demo-bucket-123.s3.us-east-2.amazonaws.com/${i.userId.profileImageUrl}`} alt='profile' className='w-12 h-12 rounded-full mx-auto' /> 
+                                                    <div className='font-light text-xs  w-full'>
+                                                        {i.userId.username}
+                                                    </div>
+                                            </div>
+                                            <div className='col-span-3'>
+                                                <div className='flex flex-wrap p-1'>
+                                                    <div className='font-light text-left text-sm font-semibold w-1/2'>
+                                                        {i.threadId.title}
+                                                    </div>
+                                                    <div className='font-light text-xs w-1/2 text-right'>
+                                                        <Moment format='DD/MM/YYYY'>
+                                                        {i.created}
+                                                        </Moment>
+                                                    </div>
+                                                    <div className='font-light text-sm w-full text-left'>
+                                                        {i.content}...
+                                                    </div>
+                                                </div>
+                                                <div className='w-full text-gray-300'>
+                                                    <div className=' text-sm'>
+                                                        {i.threadId.categoryId}
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div className='flex flex-wrap p-1'>
-                                        <div className='font-light text-left text-sm font-semibold w-1/2'>
-                                            {i.threadId.title}
-                                        </div>
-                                        <div className='font-light text-sm w-1/2 text-right'>
-                                            <Moment format='DD/MM/YYYY'>
-                                            {i.created}
-                                            </Moment>
-                                        </div>
-                                        <div className='font-light text-sm w-full text-left'>
-                                            {i.content}...
-                                        </div>
-                                        <div className='font-light text-xs text-right w-full'>
-                                            por <span className='italic' >{i.userId.username}</span>
-                                        </div>
-                                    </div>
                                     </Link>
-                                    <hr/>
                                 </div>
                             )
                         })

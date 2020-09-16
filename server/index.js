@@ -5,6 +5,7 @@ const path = require('path');
 const morgan = require('morgan');
 const session = require('express-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 const app = express();
 
 // Database
@@ -21,8 +22,8 @@ app.set('PORT', process.env.PORT || 5000);
 // Middleware
 app.use(cors());
 app.use(morgan('dev'));
-app.use(express.urlencoded({extended: false}));
-app.use(express.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000}));
 
 // Serve React static files
 app.use(express.static(path.join(__dirname, '../client/build')));

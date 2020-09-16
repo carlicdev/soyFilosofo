@@ -2,7 +2,7 @@ const Category = require("../models/forum/category");
 const Thread = require('../models/forum/thread');
 const Post = require('../models/forum/post');
 const User = require('../models/user');
-const post = require("../models/forum/post");
+
 
 exports.new_category = async (req, res) => {
     const { userId, title } = req.body;
@@ -34,8 +34,8 @@ exports.new_thread = async (req, res) => {
     try {
         const thread = await newThread.save();
         const newPost = new Post({content, userId, threadId: thread._id});
-        const result = await newPost.save();
-        res.send(result)
+        await newPost.save();
+        res.status(201).json({msg: 'New thread created'});
     } catch(err) {
         console.log(err);
     }
@@ -58,7 +58,7 @@ exports.single_thread = async (req, res) => {
     try {
         let thread = await Thread.findOne({slug: req.params.slug});
         await Thread.updateOne({_id: thread._id}, {$set: {views: thread.views + 1}})
-        let posts = await Post.find({threadId: thread._id}).populate('userId', 'username created posts');
+        let posts = await Post.find({threadId: thread._id}).populate('userId', 'username created posts profileImageUrl');
         res.status(200).json({
             threadId: thread._id,
             posts: posts
@@ -84,9 +84,9 @@ exports.new_post = async (req, res) => {
 
 exports.last_five_posts = async (req, res) => {
     try {
-        const posts = await Post.find().populate('userId', 'username').populate('threadId', 'title categoryId slug');
-        const lastThreePosts = posts.reverse().splice(0, 5);
-        res.send(lastThreePosts);
+        const posts = await Post.find().populate('userId', 'username profileImageUrl').populate('threadId', 'title categoryId slug');
+        let lastFivePosts = posts.reverse().splice(0, 5);
+        res.send(lastFivePosts);
     } catch(err) {
         console.log(err);
     }
